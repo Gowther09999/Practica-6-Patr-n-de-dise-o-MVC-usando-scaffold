@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Estudiantes" %>
+
+<h1>Estudiantes</h1>
+
+<div id="estudiantes">
+ <% @estudiantes.each do |estudiante| %>
+  <tr>
+    <td><%= link_to estudiante.nombres, estudiante_path(estudiante) %></td>
+    <td><%= link_to 'Show', estudiante_path(estudiante) %></td>
+    <td><%= link_to 'Edit', edit_estudiante_path(estudiante) %></td>
+    <td><%= link_to 'Destroy', estudiante_path(estudiante), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+
+</div>
+
+<%= link_to "New estudiante", new_estudiante_path %>
